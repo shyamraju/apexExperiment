@@ -1,4 +1,5 @@
 public class CollegeSystem {
+	
     public List<Curriculum__c> existingCurr {set;get;}
     public List<Class__c> existingClass {set;get;}
     public List<Class__c> existingClass1 {set;get;}
