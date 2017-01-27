@@ -1,66 +1,73 @@
 <apex:page sidebar="false" showHeader="false"
 	controller="DataLoadTestingClass">
-	<div class="center"> 
-	 <apex:stylesheet value="{!$Resource.customCSS}" />
-	<apex:pageBlock mode="edit">
-	<div align="center" class="titleMain"><h1>College Curriculum Picker</h1></div>
-		<apex:pageBlockSection title="Create a Curriculum" columns="2">
-			<apex:form >
-				
+	<div class="center">
+		<apex:stylesheet value="{!$Resource.customCSS}" />
+		<apex:pageBlock mode="edit">
+			<div align="center" class="titleMain">
+				<h1>College Curriculum Picker</h1>
+			</div>
+			<apex:pageBlockSection title="Create a Curriculum" columns="2">
+				<apex:form >
 
-				<apex:pageBlockSectionItem >
-					<apex:outputLabel value="Name   " styleClass="label">&nbsp;&nbsp;&nbsp;</apex:outputLabel>
-					<apex:inputText value="{!newName}" styleClass="textBox" required="true"/>
-				</apex:pageBlockSectionItem>
-				<br />
-				<br />
 
-				<apex:pageBlockSectionItem >
-					<apex:outputLabel value="Class1  " styleClass="label">&nbsp;</apex:outputLabel>
-					<apex:selectList value="{!newClass1}" size="1" styleClass="select" required="true">
-						<apex:selectOptions value="{!openPresentationOptions}" />
-					</apex:selectList>
-				</apex:pageBlockSectionItem>
-				<br />
-				<br />
+					<apex:pageBlockSectionItem >
+						<apex:outputLabel value="Name   " styleClass="label">&nbsp;&nbsp;&nbsp;</apex:outputLabel>
+						<apex:inputText value="{!newName}" styleClass="textBox"
+							required="true" />
+					</apex:pageBlockSectionItem>
+					<br />
+					<br />
 
-				<apex:pageBlockSectionItem >
-					<apex:outputLabel value="Class2  " styleClass="label">&nbsp;</apex:outputLabel>
-					<apex:selectList value="{!newClass2}" size="1" styleClass="select" required="true">
-						<apex:selectOptions value="{!openPresentationOptions}" />
-					</apex:selectList>
-				</apex:pageBlockSectionItem>
-				<br />
-				<br />
+					<apex:pageBlockSectionItem >
+						<apex:outputLabel value="Class1  " styleClass="label">&nbsp;</apex:outputLabel>
+						<apex:selectList value="{!newClass1}" size="1" styleClass="select"
+							required="true">
+							<apex:selectOptions value="{!openPresentationOptions}" />
+						</apex:selectList>
+					</apex:pageBlockSectionItem>
+					<br />
+					<br />
 
-				<apex:pageBlockSectionItem >
-					<apex:outputLabel value="Class3  " styleClass="label">&nbsp;</apex:outputLabel>
-					<apex:selectList value="{!newClass3}" size="1" styleClass="select" required="true">
-						<apex:selectOptions value="{!openPresentationOptions}" />
-					</apex:selectList>
-				</apex:pageBlockSectionItem>
-				<br />
-				<br />
+					<apex:pageBlockSectionItem >
+						<apex:outputLabel value="Class2  " styleClass="label">&nbsp;</apex:outputLabel>
+						<apex:selectList value="{!newClass2}" size="1" styleClass="select"
+							required="true">
+							<apex:selectOptions value="{!openPresentationOptions}" />
+						</apex:selectList>
+					</apex:pageBlockSectionItem>
+					<br />
+					<br />
 
-				<apex:pageBlockSectionItem >
-					<apex:outputLabel value="Class4  " styleClass="label">&nbsp;</apex:outputLabel>
-					<apex:selectList value="{!newClass4}" size="1" styleClass="select" required="true">
-						<apex:selectOptions value="{!openPresentationOptions1}" />
-					</apex:selectList>
-				</apex:pageBlockSectionItem>
-				<br />
-				<br />
+					<apex:pageBlockSectionItem >
+						<apex:outputLabel value="Class3  " styleClass="label">&nbsp;</apex:outputLabel>
+						<apex:selectList value="{!newClass3}" size="1" styleClass="select"
+							required="true">
+							<apex:selectOptions value="{!openPresentationOptions}" />
+						</apex:selectList>
+					</apex:pageBlockSectionItem>
+					<br />
+					<br />
 
-				<apex:pageBlockSectionItem >
-					<apex:outputLabel value="Class5  " styleClass="label">&nbsp;</apex:outputLabel>
-					<apex:selectList value="{!newClass5}" size="1" styleClass="select">
-						<apex:selectOptions value="{!openPresentationOptions1}" />
-					</apex:selectList>
-				</apex:pageBlockSectionItem>
-				<br />
-				<br />
+					<apex:pageBlockSectionItem >
+						<apex:outputLabel value="Class4  " styleClass="label">&nbsp;</apex:outputLabel>
+						<apex:selectList value="{!newClass4}" size="1" styleClass="select"
+							required="true">
+							<apex:selectOptions value="{!openPresentationOptions1}" />
+						</apex:selectList>
+					</apex:pageBlockSectionItem>
+					<br />
+					<br />
 
-				<!--   <apex:outputpanel id="existingCur">
+					<apex:pageBlockSectionItem >
+						<apex:outputLabel value="Class5  " styleClass="label">&nbsp;</apex:outputLabel>
+						<apex:selectList value="{!newClass5}" size="1" styleClass="select">
+							<apex:selectOptions value="{!openPresentationOptions1}" />
+						</apex:selectList>
+					</apex:pageBlockSectionItem>
+					<br />
+					<br />
+
+					<!--   <apex:outputpanel id="existingCur">
                         <apex:pageBlockTable value="{!existingCurr}" var="ex">
                             <apex:column value="{!ex.Name}"/>
                             <apex:column value="{!ex.Class_1__c}"/>
@@ -70,35 +77,39 @@
                             <apex:column value="{!ex.Class_5__c}"/>
                      </apex:pageBlockTable>
                  </apex:outputpanel> -->
-                 
-                 <apex:commandButton value="Create New Curriculum"
-					action="{!doInsert}" rerender="existingCur" status="inStatus" styleCLass="buttonInsert"/>
-				<!--<apex:outputpanel >-->
-				
-				<!--<apex:actionSupport event="onclick" action="{!doInsert}" rerender="existingCur" status="counterStatus"/>-->
-				<div align="center"><apex:actionStatus id="inStatus"
-					startText=" (INSERTING NEW DATA...)" stopText=" (--------DONE--------)"/></div>
-				<!--</apex:outputpanel>-->
-				<br />
-				
-			</apex:form>
-		</apex:pageBlockSection>
-		<apex:pageBlockSection title="Existing Curriculum">
-			<apex:form >
-				<apex:outputpanel id="existingCur">
-					<apex:pageBlockTable value="{!existingCurr}" var="ex">
-						<apex:column value="{!ex.Name}" />
-						<apex:column value="{!ex.Class_1__c}" />
-						<apex:column value="{!ex.Class_2__c}" />
-						<apex:column value="{!ex.Class_3__c}" />
-						<apex:column value="{!ex.Class_4__c}" />
-						<apex:column value="{!ex.Class_5__c}" />
-					</apex:pageBlockTable>
-				</apex:outputpanel>
-			</apex:form>
-		</apex:pageBlockSection>
 
-	</apex:pageBlock>
+					<apex:commandButton value="Create New Curriculum"
+						action="{!doInsert}" rerender="existingCur" status="inStatus"
+						styleCLass="buttonInsert" />
+					<!--<apex:outputpanel >-->
 
-</div>
+					<!--<apex:actionSupport event="onclick" action="{!doInsert}" rerender="existingCur" status="counterStatus"/>-->
+					<div align="center">
+						<apex:actionStatus id="inStatus"
+							startText=" (INSERTING NEW DATA...)"
+							stopText=" (--------DONE--------)" />
+					</div>
+					<!--</apex:outputpanel>-->
+					<br />
+
+				</apex:form>
+			</apex:pageBlockSection>
+			<apex:pageBlockSection title="Existing Curriculum">
+				<apex:form >
+					<apex:outputpanel id="existingCur">
+						<apex:pageBlockTable value="{!existingCurr}" var="ex">
+							<apex:column value="{!ex.Name}" />
+							<apex:column value="{!ex.Class_1__c}" />
+							<apex:column value="{!ex.Class_2__c}" />
+							<apex:column value="{!ex.Class_3__c}" />
+							<apex:column value="{!ex.Class_4__c}" />
+							<apex:column value="{!ex.Class_5__c}" />
+						</apex:pageBlockTable>
+					</apex:outputpanel>
+				</apex:form>
+			</apex:pageBlockSection>
+
+		</apex:pageBlock>
+
+	</div>
 </apex:page>
